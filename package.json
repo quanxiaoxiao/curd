@@ -1,6 +1,6 @@
 {
   "name": "@quanxiaoxiao/curd",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "",
   "keywords": [],
   "author": "",
@@ -9,7 +9,7 @@
   "exports": "./src/index.mjs",
   "type": "module",
   "scripts": {
-    "lint": "eslint src/* --ignore-path .gitignore",
+    "lint": "tsc",
     "test": "ava"
   },
   "publishConfig": {
@@ -25,7 +25,8 @@
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-react": "^7.28.0",
-    "eslint-plugin-react-hooks": "^4.3.0"
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "typescript": "^5.3.3"
   },
   "engines": {
     "node": ">= 14.18.0"
