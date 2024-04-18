@@ -1,8 +1,3 @@
-/**
- * @param {Array<*>} list
- * @param {*} query
- * @returns {number}
- */
 const findIndex = (list, query) => {
   if (!Array.isArray(list)) {
     throw new Error('data is not array');
@@ -28,13 +23,6 @@ const findIndex = (list, query) => {
   return list.indexOf(query);
 };
 
-/**
- * @template T
- * @param {Array<T>} list
- * @param {*} query
- * @param {T} d
- * @returns {Array<T>}
- */
 export const update = (list, query, d) => {
   const index = findIndex(list, query);
   if (index === -1) {
@@ -55,12 +43,6 @@ export const update = (list, query, d) => {
     .concat(list.slice(index + 1));
 };
 
-/**
- * @template T
- * @param {Array<T>} list
- * @param {*} query
- * @returns {Array<T>}
- */
 export const remove = (list, query) => {
   const index = findIndex(list, query);
   if (index === -1) {
@@ -69,13 +51,6 @@ export const remove = (list, query) => {
   return list.slice(0, index).concat(list.slice(index + 1));
 };
 
-/**
- * @template T
- * @param {Array<T>} list
- * @param {T} item
- * @param {*} query
- * @return {Array<T>}
- */
 export const insert = (list, item, query) => {
   if (query) {
     const index = findIndex(list, query);
@@ -89,19 +64,8 @@ export const insert = (list, item, query) => {
   return [item, ...list];
 };
 
-/**
- * @template T
- * @param {Array<T>} list
- * @param {T} item
- * @returns {Array<T>}
- */
 export const append = (list, item) => [...list, item];
 
-/**
- * @param {Array<*>} list
- * @param {*} query
- * @returns {Array<*>}
- */
 export const filter = (list, query) => {
   if (query == null) {
     return list;
@@ -121,12 +85,6 @@ export const filter = (list, query) => {
     .filter((item) => !keys.every((key) => item[key] === query[key]));
 };
 
-/**
- * @template T
- * @param {Array<T>} list
- * @param {*} query
- * @returns {T|null}
- */
 export const find = (list, query) => {
   const index = findIndex(list, query);
   if (index === -1) {
