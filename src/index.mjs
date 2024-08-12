@@ -23,30 +23,37 @@ const findIndex = (list, query) => {
   return list.indexOf(query);
 };
 
-export const update = (list, query, d) => {
+export const update = (list, query, data, fn) => {
   const index = findIndex(list, query);
   if (index === -1) {
     return list;
   }
   const obj = list[index];
+  if (fn) {
+    fn(list[index]);
+  }
   if (typeof obj === 'object') {
     const item = {
       ...list[index],
-      ...d,
+      ...data,
     };
     return list.slice(0, index)
       .concat([item])
       .concat(list.slice(index + 1));
   }
   return list.slice(0, index)
-    .concat([d])
+    .concat([data])
     .concat(list.slice(index + 1));
 };
 
-export const remove = (list, query) => {
+export const remove = (list, query, fn) => {
   const index = findIndex(list, query);
   if (index === -1) {
     return list;
+  }
+  const item = list[index];
+  if (fn) {
+    fn(item);
   }
   return list.slice(0, index).concat(list.slice(index + 1));
 };
