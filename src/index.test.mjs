@@ -1,9 +1,10 @@
-import test from 'node:test';
 import assert from 'node:assert';
+import test from 'node:test';
+
 import {
   find,
-  update,
   remove,
+  update,
 } from './index.mjs';
 
 test('find', () => {

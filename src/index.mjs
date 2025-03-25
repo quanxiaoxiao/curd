@@ -30,11 +30,11 @@ export const update = (list, query, data, fn) => {
   }
   const obj = list[index];
   if (fn) {
-    fn(list[index]);
+    fn(obj);
   }
   if (typeof obj === 'object') {
     const item = {
-      ...list[index],
+      ...obj,
       ...data,
     };
     return list.slice(0, index)
