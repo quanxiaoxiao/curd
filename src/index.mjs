@@ -99,12 +99,3 @@ export const find = (list, query) => {
   }
   return list[index];
 };
-
-export default {
-  find,
-  filter,
-  append,
-  insert,
-  remove,
-  update,
-};
