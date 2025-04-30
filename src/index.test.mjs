@@ -132,6 +132,34 @@ test('update2', () => {
       age: 33,
     },
   ]);
+  assert.deepEqual(update(data, { name: 'bbb' }, () => 66), [
+    {
+      name: 'aaa',
+      age: 22,
+    },
+    66,
+    {
+      name: 'ccc',
+      age: 33,
+    },
+  ]);
+  assert.deepEqual(update(data, { name: 'bbb' }, (d) => ({
+    ...d,
+    name: 'xx',
+  })), [
+    {
+      name: 'aaa',
+      age: 22,
+    },
+    {
+      name: 'xx',
+      age: 22,
+    },
+    {
+      name: 'ccc',
+      age: 33,
+    },
+  ]);
 });
 
 test('remove', () => {

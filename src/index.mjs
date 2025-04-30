@@ -23,7 +23,7 @@ const findIndex = (list, query) => {
   return list.indexOf(query);
 };
 
-export const update = (list, query, data, fn) => {
+export const update = (list, query, handler, fn) => {
   const index = findIndex(list, query);
   if (index === -1) {
     return list;
@@ -32,6 +32,15 @@ export const update = (list, query, data, fn) => {
   if (fn) {
     fn(obj);
   }
+  if (typeof handler === 'function') {
+    const data = handler(obj);
+    return list.slice(0, index)
+      .concat([data])
+      .concat(list.slice(index + 1));
+  }
+
+  const data = handler;
+
   if (typeof obj === 'object') {
     const item = {
       ...obj,
